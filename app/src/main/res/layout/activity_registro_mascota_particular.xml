@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroMascotaParticular">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/perroygato"
+
+        android:scaleType="centerCrop">
+
+    </ImageView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#a1000000"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            app:srcCompat="@drawable/png"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="25dp"
+            android:paddingBottom="19dp"
+            android:textSize="20sp"
+            android:text="Registro de Mascotas"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Foto de Mascota"
+                android:textColor="#fff"
+                android:textSize="18sp">
+
+            </TextView>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="#7CD769"
+                android:text="   Elegir Archivo   "
+                android:textColor="#000"
+                android:textSize="17sp">
+
+            </Button>
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/Rut_mascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese rut de mascota"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="#ccc"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/Edad_mascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese edad de mascota"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="#ccc"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Tipo mascota"
+            android:textColor="#fff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
+            android:textSize="18sp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Vacunas"
+            android:textColor="#fff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"></TextView>
+
+
+        <RadioButton
+            android:id="@+id/r_al_dia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="20dp"
+            android:buttonTint="#FFFFFF"
+            android:paddingLeft="30dp"
+
+            android:text="Al día"
+            android:textColor="#fff" />
+
+        <RadioButton
+            android:id="@+id/r_atrasada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="20dp"
+            android:buttonTint="#FFFFFF"
+            android:paddingLeft="30dp"
+            android:paddingBottom="30dp"
+            android:text="Atrasada"
+            android:textColor="#fff" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_fondo_color"
+            android:text="Registrar"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:elevation="5dp"></Button>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+

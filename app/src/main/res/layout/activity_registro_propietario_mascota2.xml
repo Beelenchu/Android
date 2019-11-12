@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroPropietarioMascota2">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/cat"
+
+        android:scaleType="centerCrop">
+
+    </ImageView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#c7000000"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="78dp"
+            android:layout_height="76dp"
+            android:layout_marginBottom="10dp"
+            app:srcCompat="@drawable/png" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registro Dueño de Mascotas"
+            android:textSize="22dp"
+            android:textColor="#fff"
+            android:gravity="end"
+            android:layout_marginBottom="30dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:text="Residencia"
+            android:textColor="#fff"
+            android:textIsSelectable="false"
+            android:textSize="15dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/Pais"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/Region"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="10dp"
+                android:hint="Región"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="#ccc"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/Ciudad"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:hint="Ciudad"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:textColor="#ccc"
+                android:textColorHint="#ccc"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+
+
+        <EditText
+            android:id="@+id/R_poblacion_p"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Población"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="#ccc"
+            android:textColorHint="#ccc"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/R_Calle_p"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Calle"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="#ccc"
+            android:textColorHint="#ccc"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/R_Numero_p"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Comuna"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="#ccc"
+            android:textColorHint="#ccc"
+            android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/Atras_1"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/btn_fondo_claro"
+                android:elevation="5dp"
+                android:text="Atrás"
+                android:textColor="#fff"
+                android:textSize="15dp"></Button>
+
+            <Button
+                android:id="@+id/Siguiente_2"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/btn_fondo_color"
+                android:elevation="5dp"
+                android:text="Siguiente"
+                android:textColor="#fff"
+                android:textSize="15dp"></Button>
+
+            <Button
+                android:id="@+id/Cerrar_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/btn_fondo_claro"
+                android:elevation="5dp"
+                android:text="Cerrar"
+                android:textColor="#fff"
+                android:textSize="15dp"></Button>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</RelativeLayout>
