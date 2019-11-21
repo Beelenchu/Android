@@ -21,6 +21,8 @@ import com.android.volley.toolbox.Volley;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +33,7 @@ public class RegistroPropietarioMascota extends AppCompatActivity implements Vie
     Button sgt,cerrar,fecha;
     EditText rut, nombre, apellidos;
     int dia,mes,ano;
-
+String ape;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,18 +43,19 @@ public class RegistroPropietarioMascota extends AppCompatActivity implements Vie
         cerrar = (Button)findViewById(R.id.Cerrar_1);
         sgt = (Button)findViewById(R.id.Siguiente_1);
 
-        rut = findViewById(R.id.Rut);
-        nombre = findViewById(R.id.Nombre_p);
-        apellidos = findViewById(R.id.Apellidos_p);
+        rut = (EditText) findViewById(R.id.Rut);
+        nombre = (EditText) findViewById(R.id.Nombre_p);
+        apellidos = (EditText) findViewById(R.id.Apellidos_p);
+
 
 
         fecha.setOnClickListener(this);
         sgt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //ejecutarServicio();
-               Intent siguiente1 = new Intent(getApplicationContext(),RegistroPropietarioMascota2.class);
-              startActivity(siguiente1);
+               ejecutarServicio();
+               //Intent siguiente1 = new Intent(getApplicationContext(),RegistroPropietarioMascota2.class);
+              //startActivity(siguiente1);
 
             }
         });
@@ -68,10 +71,14 @@ public class RegistroPropietarioMascota extends AppCompatActivity implements Vie
 
     private void ejecutarServicio(){
         AsyncHttpClient client = new AsyncHttpClient();
-
+        try {
+            ape = URLEncoder.encode(apellidos.getText().toString(),"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         String URL2 = http.ip +"/conexion_as/insertDatosPropietarioMascota.php?";
         String parametros = "userRut=" + rut.getText().toString() + "&userNombre="
-                + nombre.getText().toString() + "&userApellidos=" + apellidos.getText().toString()
+                + nombre.getText().toString() + "&userApellidos=" + ape
                 + "&userFechaNac=" + fecha.getText().toString();
         client.post(URL2 + parametros, new AsyncHttpResponseHandler() {
             @Override
@@ -80,6 +87,7 @@ public class RegistroPropietarioMascota extends AppCompatActivity implements Vie
                 {
                     Toast.makeText(getApplicationContext(), "OPERACIÓN EXITOSA", Toast.LENGTH_SHORT).show();
                    Intent siguiente1 = new Intent(getApplicationContext(),RegistroPropietarioMascota2.class);
+                   siguiente1.putExtra("dato1",rut.getText().toString());
                     startActivity(siguiente1);
                 }
             }

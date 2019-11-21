@@ -48,7 +48,7 @@ public class RegistroPropietarioMascota2 extends AppCompatActivity {
         cerrar = (Button)findViewById(R.id.Cerrar_2);
         atras = (Button)findViewById(R.id.Atras_1);
 
-
+        llenarSpinner();
         sppais = findViewById(R.id.Pais);
         spregion = findViewById(R.id.Region);
         spciudad = findViewById(R.id.Ciudad);
@@ -57,7 +57,7 @@ public class RegistroPropietarioMascota2 extends AppCompatActivity {
         calle = findViewById(R.id.R_Calle_p);
         num = findViewById(R.id.R_Numero_p);
 
-        llenarSpinner();
+        //recibirDato();
         sppais.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -67,7 +67,7 @@ public class RegistroPropietarioMascota2 extends AppCompatActivity {
                 }else {
                     idpaisspiner = id;
                     Toast.makeText(RegistroPropietarioMascota2.this, "id = " + id, Toast.LENGTH_SHORT).show();
-                   // llenarSpinner2();
+                    llenarSpinner2();
                 }
             }
 
@@ -84,7 +84,7 @@ public class RegistroPropietarioMascota2 extends AppCompatActivity {
                 {
                     idregionspiner= id;
                     Toast.makeText(RegistroPropietarioMascota2.this, "id = " + id, Toast.LENGTH_SHORT).show();
-                    //llenarSpinner3();
+                    llenarSpinner3();
                 }
             }
 
@@ -99,7 +99,7 @@ public class RegistroPropietarioMascota2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                //ejecutar();
-                //mandarDatos();
+                mandarDatos();
                  //Intent siguiente1 = new Intent(getApplicationContext(),RegistroPropietarioMascota2.class);
                 //startActivity(siguiente1);
 
@@ -122,6 +122,8 @@ public class RegistroPropietarioMascota2 extends AppCompatActivity {
             }
         });
     }
+
+
     /*
     void ejecutar()
     {
@@ -162,8 +164,8 @@ void llenarSpinner(){
                 if(statusCode == 200)
                 {
                     cargarSpinner(new String(responseBody));
-                    Intent siguiente1 = new Intent(getApplicationContext(),RegistroPropietarioMascota2.class);
-                    startActivity(siguiente1);
+                    //Intent siguiente1 = new Intent(getApplicationContext(),RegistroPropietarioMascota2.class);
+                    //startActivity(siguiente1);
                 }
             }
 
@@ -202,7 +204,7 @@ void cargarSpinner(String respuesta){
     }
 }
 
-  /*  void llenarSpinner2(){
+    void llenarSpinner2(){
         AsyncHttpClient cliente;
         cliente = new AsyncHttpClient();
         String url = http.ip +"/conexion_as/obtenerRegion.php?idPais="+idpaisspiner;
@@ -294,22 +296,33 @@ void llenarSpinner3(){
         }
     });
 }
-*/
+    void recibirDato()
+    {
+        Bundle extra = getIntent().getExtras();
+        String d1 = extra.getString("dato1");
+        Toast.makeText(this, "rut: " + d1, Toast.LENGTH_SHORT).show();
+    }
 
     private void mandarDatos(){
         AsyncHttpClient client = new AsyncHttpClient();
 
+
+
         String URL2 = http.ip +"/conexion_as/subirResidencia.php?";
-        String parametros = "nombreComuna=" + spciudad.getSelectedItem().toString();
+        String parametros = "comunaNombre=" + spciudad.getSelectedItem().toString() + "&resPoblacion=" + pobla.getText().toString()
+                + "&resCalle=" + calle.getText().toString() + "&resNumero=" + num.getText().toString();
 
         client.post(URL2 + parametros, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode == 200)
                 {
-                    Toast.makeText(getApplicationContext(), "OPERACIÓN EXITOSA", Toast.LENGTH_SHORT).show();
-                    // Intent siguiente1 = new Intent(getApplicationContext(),RegistroPropietarioMascota2.class);
-                    //startActivity(siguiente1);
+                    Bundle extra = getIntent().getExtras();
+                    String d1 = extra.getString("dato1");
+                    Toast.makeText(getApplicationContext(), "OPERACIÓN EXITOSA ddxf", Toast.LENGTH_SHORT).show();
+                     Intent siguiente1 = new Intent(getApplicationContext(),RegistroPropietarioMascota3.class);
+                     siguiente1.putExtra("dato2",d1);
+                    startActivity(siguiente1);
                 }
             }
             @Override
